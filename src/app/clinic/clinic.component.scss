@@ -1,0 +1,11 @@
+.bg-light-blue {
+  @apply bg-blue-100;
+}
+
+.input-field {
+  @apply border border-blue-300 rounded-md p-2 w-full focus:border-blue-500 focus:outline-none;
+}
+
+.btn-primary {
+  @apply bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700;
+}
