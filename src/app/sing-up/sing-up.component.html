@@ -1,0 +1,15 @@
+<div class="form-container text-center bg-light-blue-100 p-6 rounded-lg">
+  <h2 class="text-5xl font-bold mb-4 text-blue-900">Регистрация</h2>
+  <div class="role-section flex gap-4 justify-center mb-6">
+    <button class="btn-primary bg-blue-500 text-white py-2 px-10 text-2xl rounded hover:bg-blue-600 transition" (click)="showPatientFields()">Пациент</button>
+    <button class="btn-primary bg-blue-500 text-white py-2 px-10  text-2xl rounded hover:bg-blue-600 transition" (click)="showClinicFields()">Клиника</button>
+  </div>
+
+  <ng-container *ngIf="selectedForm === 'patient'">
+    <app-posient></app-posient>
+  </ng-container>
+
+  <ng-container *ngIf="selectedForm === 'clinic'">
+    <app-clinic></app-clinic>
+  </ng-container>
+</div>

@@ -1,1 +1,31 @@
-<p>posient works!</p>
+<form [formGroup]="patientForm" (ngSubmit)="onSubmit()" class="max-w-2xl mx-auto p-6 bg-blue-100 rounded-lg shadow-md space-y-4">
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <div class="form-group">
+      <label for="email" class="block text-sm font-medium text-blue-800">Эл. почта</label>
+      <input type="email" id="email" formControlName="email" class="mt-1 p-2 border border-blue-300 rounded-md w-full" />
+    </div>
+    <div class="form-group">
+      <label for="password" class="block text-sm font-medium text-blue-800">Пароль</label>
+      <input type="password" id="password" formControlName="password" class="mt-1 p-2 border border-blue-300 rounded-md w-full" />
+    </div>
+    <div class="form-group">
+      <label for="fullname" class="block text-sm font-medium text-blue-800">ФИО</label>
+      <input type="text" id="fullname" formControlName="fullname" class="mt-1 p-2 border border-blue-300 rounded-md w-full" />
+    </div>
+    <div class="form-group">
+      <label for="address" class="block text-sm font-medium text-blue-800">Адрес</label>
+      <input type="text" id="address" formControlName="address" class="mt-1 p-2 border border-blue-300 rounded-md w-full" />
+    </div>
+    <div class="form-group">
+      <label for="phone" class="block text-sm font-medium text-blue-800">Номер телефона</label>
+      <input type="tel" id="phone" formControlName="phone" class="mt-1 p-2 border border-blue-300 rounded-md w-full" />
+    </div>
+    <div class="form-group">
+      <label for="birthyear" class="block text-sm font-medium text-blue-800">Год рождения</label>
+      <input type="number" id="birthyear" formControlName="birthyear" class="mt-1 p-2 border border-blue-300 rounded-md w-full" />
+    </div>
+  </div>
+  <button type="submit" class="mt-4 w-full py-2 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition duration-200"><a routerLink="/index" class="text-white-600 text-center hover:underline">Ба саҳифаи аввал</a></button>
+  <button type="submit" class="mt-4 w-full py-2 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition duration-200">Зарегистрироваться</button>
+
+</form>
