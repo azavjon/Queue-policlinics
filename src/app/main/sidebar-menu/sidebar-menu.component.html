@@ -1,0 +1,23 @@
+<div class="sidebar">
+  <div class="sidebar-nav">
+    <div  class="text-center">
+<!--      <p class="font-semibold">Hashen Udara</p>-->
+<!--      <p class="text-sm text-gray-400">emhashenudara.com</p>-->
+      <button class="mt-8 bg-blue-500 text-2xl hover:bg-blue-700 text-white py-3 px-6 rounded"><a routerLink="/index">Выйти</a>
+      </button>
+    </div>
+    <nav class="sidebar-nav-item">
+      <ul>
+        <li class="" *ngFor="let menuItem of menus">
+          <a
+            [routerLink]="[menuItem.route]"
+            routerLinkActive="active"
+            class="route">
+            {{ menuItem.text }}
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+

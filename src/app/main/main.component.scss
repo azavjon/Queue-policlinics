@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+}
+.em-d-flex {
+  display: flex;
+}
+
+.main {
+  max-width: 1920px;
+  width: 100%;
+  margin: auto;
+  height: 100vh;
+
+  &-body {
+    width: 100%;
+    overflow-y: scroll;
+    max-width: 1640px;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}

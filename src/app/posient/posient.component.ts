@@ -1,15 +1,14 @@
 import { Component } from '@angular/core';
-
 import{RouterModule} from "@angular/router";
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
-
 import {CommonModule} from "@angular/common";
+
 
 
 @Component({
   selector: 'app-posient',
   standalone: true,
-  imports: [ReactiveFormsModule,CommonModule],
+  imports: [ReactiveFormsModule,CommonModule,RouterModule],
   templateUrl: './posient.component.html',
   styleUrl: './posient.component.scss'
 })

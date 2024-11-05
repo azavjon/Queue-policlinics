@@ -1,1 +1,21 @@
-<p>admin works!</p>
+<div class="flex h-screen">
+  <!-- Sidebar -->
+  <div class="flex flex-col w-64 bg-gray-800 text-white p-4">
+    <div class="flex flex-col items-center mb-8">
+      <div class="text-4xl mb-2">
+
+      </div>
+      <p class="font-semibold">Hashen Udara</p>
+      <p class="text-sm text-gray-400">emhashenudara.com</p>
+      <button class="mt-4 bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded"><a routerLink="/index">Выйти</a></button>
+    </div>
+    <nav>
+        <ul>
+          <li class="my-2" *ngFor="let link of filteredLinks">
+            <a [routerLink]="link.route" class="block p-2 hover:bg-gray-700 rounded">{{ link.name }}</a>
+          </li>
+        </ul>
+    </nav>
+  </div>
+</div>
+
