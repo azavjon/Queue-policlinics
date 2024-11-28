@@ -1,31 +1,63 @@
-<form [formGroup]="patientForm" (ngSubmit)="onSubmit()" class="max-w-2xl mx-auto p-6 bg-blue-100 rounded-lg shadow-md space-y-4">
-  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-    <div class="form-group">
-      <label for="email" class="block text-sm font-medium text-blue-800">Эл. почта</label>
-      <input type="email" id="email" formControlName="email" class="mt-1 p-2 border border-blue-300 rounded-md w-full" />
-    </div>
-    <div class="form-group">
-      <label for="password" class="block text-sm font-medium text-blue-800">Пароль</label>
-      <input type="password" id="password" formControlName="password" class="mt-1 p-2 border border-blue-300 rounded-md w-full" />
-    </div>
-    <div class="form-group">
-      <label for="fullname" class="block text-sm font-medium text-blue-800">ФИО</label>
-      <input type="text" id="fullname" formControlName="fullname" class="mt-1 p-2 border border-blue-300 rounded-md w-full" />
-    </div>
-    <div class="form-group">
-      <label for="address" class="block text-sm font-medium text-blue-800">Адрес</label>
-      <input type="text" id="address" formControlName="address" class="mt-1 p-2 border border-blue-300 rounded-md w-full" />
-    </div>
-    <div class="form-group">
-      <label for="phone" class="block text-sm font-medium text-blue-800">Номер телефона</label>
-      <input type="tel" id="phone" formControlName="phone" class="mt-1 p-2 border border-blue-300 rounded-md w-full" />
-    </div>
-    <div class="form-group">
-      <label for="birthyear" class="block text-sm font-medium text-blue-800">Год рождения</label>
-      <input type="number" id="birthyear" formControlName="birthyear" class="mt-1 p-2 border border-blue-300 rounded-md w-full" />
-    </div>
-  </div>
-  <button type="submit" class="mt-4 w-full py-2 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition duration-200"><a routerLink="/login" class="text-white-600 text-center hover:underline">Ба саҳифаи аввал</a></button>
-  <button type="submit" class="mt-4 w-full py-2 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition duration-200">Зарегистрироваться</button>
+<div class="form-container">
 
-</form>
+  <form [formGroup]="potientForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input id="email" type="email" formControlName="email" placeholder="Введите email" />
+      <div *ngIf="potientForm.get('email')?.invalid && potientForm.get('email')?.touched" class="error">
+        Пожалуйста, введите корректный email.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="username">Имя пользователя:</label>
+      <input id="username" type="text" formControlName="username" placeholder="Введите имя пользователя" />
+      <div *ngIf="potientForm.get('username')?.invalid && potientForm.get('username')?.touched" class="error">
+        Имя пользователя обязательно.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Пароль:</label>
+      <input id="password" type="password" formControlName="password" placeholder="Введите пароль" />
+      <div *ngIf="potientForm.get('password')?.invalid && potientForm.get('password')?.touched" class="error">
+        Пароль обязателен.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="fullname">ФИО:</label>
+      <input id="fullname" type="text" formControlName="fullname" placeholder="Введите полное имя" />
+      <div *ngIf="potientForm.get('fullname')?.invalid && potientForm.get('fullname')?.touched" class="error">
+        Полное имя обязательно.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="address">Адрес:</label>
+      <input id="address" type="text" formControlName="address" placeholder="Введите адрес" />
+      <div *ngIf="potientForm.get('address')?.invalid && potientForm.get('address')?.touched" class="error">
+        Адрес обязателен.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Телефон:</label>
+      <input id="phone" type="tel" formControlName="phone" placeholder="Введите телефон" />
+      <div *ngIf="potientForm.get('phone')?.invalid && potientForm.get('phone')?.touched" class="error">
+        Телефон обязателен.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="birthyear">Год рождения:</label>
+      <input id="birthyear" type="number" formControlName="birthyear" placeholder="Введите год рождения" />
+      <div *ngIf="potientForm.get('birthyear')?.invalid && potientForm.get('birthyear')?.touched" class="error">
+        Пожалуйста, введите корректный год рождения.
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="potientForm.invalid">Зарегистрироваться</button>
+  </form>
+</div>

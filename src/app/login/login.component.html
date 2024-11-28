@@ -1,22 +1,28 @@
-<div class="auth-container bg-blue-100  mt-8 bg-light-blue-100 p-8 rounded-lg shadow-lg max-w-md mx-auto">
-  <h2 class="text-4xl font-bold text-center text-blue-800 mb-10">Авторизация</h2>
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="space-y-4">
+<div class="login-container">
+  <h2>Вход</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
-      <label for="email" class="block text-blue-700 font-semibold mb-1">Email</label>
-      <input id="email" type="email" formControlName="email" placeholder="user@mail.com"
-             class="w-full p-2 bg-white border border-blue-500 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300" />
+      <label for="username">Имя пользователя</label>
+      <input id="username" type="text" formControlName="username" placeholder="Введите имя пользователя" />
+      @if(loginForm.get('username')?.invalid && loginForm.get('username')?.touched){
+      <div class="error">
+        Пожалуйста, введите имя пользователя.
+      </div>
+      }
     </div>
+
     <div class="form-group">
-      <label for="password" class="block text-blue-700 font-semibold mb-1">Пароль</label>
-      <input id="password" type="password" formControlName="password" placeholder="введите свой пароль"
-             class="w-full p-2 bg-white border border-blue-500 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300" />
+      <label for="password">Пароль</label>
+      <input id="password" type="password" formControlName="password" placeholder="Введите пароль" />
+      @if (loginForm.get('password')?.invalid && loginForm.get('password')?.touched) {
+        <div class="error">
+          Пожалуйста, введите пароль.
+        </div>
+      }
     </div>
-    <button type="submit" [disabled]="loginForm.invalid"
-            class="w-full bg-blue-600  mt-2 text-white py-2 rounded-md hover:bg-blue-700 disabled:opacity-50">Войти</button>
+
+    <button type="submit" [disabled]="loginForm.invalid">Войти</button>
+    <p class="register-link">Нет аккаунта? </p>
+    <a routerLink="/sing-up" class="text-blue-600 text-center hover:underline">Регистрация</a>
   </form>
-  <div class="auth-links mt-4 text-center">
-    <a routerLink="/sing-up" class="text-blue-600 hover:underline">Бақайдгирӣ</a>
-    <span class="mx-2">|</span>
-    <a routerLink="/index" class="text-blue-600 hover:underline">Ба саҳифаи аввал</a>
-  </div>
 </div>

@@ -29,9 +29,9 @@ export class SidebarMenuComponent {
       text: 'Смотреть очередь',
       route: 'doctors'
     },
-    {
-      text: 'График врачей',
-      route: 'schedule'
-    },
+    // {
+    //   text: 'График врачей',
+    //   route: 'schedule'
+    // },
   ]
 }

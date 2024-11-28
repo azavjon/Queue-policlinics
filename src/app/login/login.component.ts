@@ -1,36 +1,38 @@
 import { Component } from '@angular/core';
-import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import {Router, RouterLink} from '@angular/router';
-import {NgIf} from "@angular/common";
+import { AuthService } from './auth.service';
+import { LoginData } from './login.interface';
+import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, HttpClientModule, NgIf, RouterLink],
+    imports: [ReactiveFormsModule, CommonModule, RouterLink],
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
   loginForm: FormGroup;
-  registerForm: any;
 
-  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) {
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router
+  ) {
     this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]]
+      username: ['', [Validators.required]],
+      password: ['', [Validators.required]],
     });
   }
 
-  onSubmit() {
-    if (this.loginForm.valid) {
-      this.http.post('/api/login', this.loginForm.value).subscribe(response => {
-        // обработка успешного логина
-        this.router.navigate(['/dashboard']);
-      }, error => {
-        // обработка ошибки
-        alert('Login failed!');
-      });
-    }
+  onSubmit(): void {
+    this.router.navigate(['/admin']);
   }
 }
