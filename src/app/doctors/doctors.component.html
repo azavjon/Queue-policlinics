@@ -1,0 +1,32 @@
+<div class="bg-blue-600 p-6  text-2xl text-white text-center rounded-lg shadow-lg">
+  <h2 class="text-4xl font-semibold mb-4">Смотреть очередь</h2>
+  <p>Здесь отображается список врачей и текущая очередь.</p>
+  <!-- Здесь будет таблица или список очереди -->
+</div>
+
+<div class="max-w-4xl mx-auto mt-8 p-8 bg-blue-50 rounded-lg shadow-lg">
+
+
+  <table class="w-full border-collapse bg-white shadow-lg">
+    <thead>
+    <tr class="bg-blue-100">
+      <th class="px-4 py-2 border border-gray-300 text-left">ФИО</th>
+      <th class="px-4 py-2 border border-gray-300 text-left">Год Рождения</th>
+      <th class="px-4 py-2 border border-gray-300 text-left">Номер Телефона</th>
+      <th class="px-4 py-2 border border-gray-300 text-left">Врач</th>
+      <th class="px-4 py-2 border border-gray-300 text-left">Дата Записи</th>
+      <th class="px-4 py-2 border border-gray-300 text-left">Адрес Клиники</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let record of queueRecords" class="hover:bg-blue-50">
+      <td class="px-2 py-2 border border-gray-300">{{ record.fullName }}</td>
+      <td class="px-2 py-2 border border-gray-300">{{ record.birthYear }}</td>
+      <td class="px-2 py-2 border border-gray-300">{{ record.phone }}</td>
+      <td class="px-2 py-2 border border-gray-300">{{ record.doctor }}</td>
+      <td class="px-2 py-2 border border-gray-300">{{ record.appointmentDate }}</td>
+      <td class="px-2 py-2 border border-gray-300">{{ record.clinicAddress }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
